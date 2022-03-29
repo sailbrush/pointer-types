@@ -1,0 +1,15 @@
+[package]
+name = "pointer-types"
+version = "0.1.0"
+edition = "2021"
+authors = ["TimTom <timtom.business@gmail.com>"]
+description = "Contains types to define pointer related events."
+documentation = "https://github.com/sailbrush/pointer-types"
+homepage = "https://github.com/sailbrush/pointer-types"
+repository = "https://github.com/sailbrush/pointer-types"
+readme = "README.md"
+keywords = ["GUI"]
+categories = ["gui"]
+license = "MIT"
+
+[dependencies]
