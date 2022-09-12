@@ -1,6 +1,6 @@
 [package]
 name = "pointer-types"
-version = "0.2.1"
+version = "0.3.0"
 edition = "2021"
 authors = ["TimTom <timtom.business@gmail.com>"]
 description = "Contains types to define pointer related events."
@@ -13,3 +13,4 @@ categories = ["gui"]
 license = "MIT"
 
 [dependencies]
+keyboard-types = "0.6"
