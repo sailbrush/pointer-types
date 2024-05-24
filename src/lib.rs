@@ -4,22 +4,22 @@ use keyboard_types::Modifiers;
 
 #[derive(PartialEq, Eq, Clone, Copy, Debug)]
 pub enum PointerButton {
-    None,
+    None = 0,
 
     /// The primary pointer button, usually the left mouse button.
-    Primary,
+    Primary = 1,
 
     /// The secondary pointer bytton, usually the right mouse button.
-    Secondary,
+    Secondary = 2,
 
     /// The auxilary pointer button, usually the wheel or middle mouse button.
-    Auxilary,
+    Auxilary = 3,
 
-    /// The fourth button, usually the back button
-    X1,
+    /// The fourth button, usually the back button.
+    X1 = 4,
 
-    /// The fifth button, usually the forward button
-    X2,
+    /// The fifth button, usually the forward button.
+    X2 = 5,
 }
 
 impl PointerButton {
@@ -60,7 +60,7 @@ pub struct PointerButtons(u8);
 impl PointerButtons {
     /// Create a new empty set.
     #[inline]
-    pub fn new() -> PointerButtons {
+    pub fn empty() -> PointerButtons {
         PointerButtons(0)
     }
 
@@ -158,6 +158,12 @@ impl PointerButtons {
     }
 }
 
+impl From<u8> for PointerButtons {
+    fn from(value: u8) -> Self {
+        PointerButtons(value)
+    }
+}
+
 impl std::fmt::Debug for PointerButtons {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(f, "PointerButtons({:05b})", self.0 >> 1)
@@ -174,16 +180,16 @@ pub enum PointerType {
 #[derive(Debug, Clone, Copy)]
 pub struct RawPointerEvent {
     /// The horizontal coordinate of the pointer event in the window.
-    pub window_pos_x: f32,
+    pub window_pos_x: f64,
 
     /// The vertical coordinate of the pointer event in the window.
-    pub window_pos_y: f32,
+    pub window_pos_y: f64,
 
     /// The horizontal scroll amount.
-    pub wheel_x: f32,
+    pub wheel_x: f64,
 
     /// The vertical scroll amount.
-    pub wheel_y: f32,
+    pub wheel_y: f64,
 
     /// The button responsible for a pointer event.
     /// This will always be `None` for a pointer_move event.
@@ -219,10 +225,10 @@ pub struct RawPointerEvent {
     pub tangential_pressure: f32,
 
     /// The tilt of the pen in the X axis, from -1 to 1.
-    pub tilt_x: f32,
+    pub tilt_x: f64,
 
     /// The tilt of the pen in the Y axis, from -1 to 1.
-    pub tilt_y: f32,
+    pub tilt_y: f64,
 
     /// The clockwise rotation of the pointer (e.g. pen stylus) around
     /// its major axis in degrees, with a value in the range 0 to 359.
