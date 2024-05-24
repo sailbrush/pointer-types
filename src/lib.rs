@@ -13,7 +13,7 @@ pub enum PointerButton {
     Secondary = 2,
 
     /// The auxilary pointer button, usually the wheel or middle mouse button.
-    Auxilary = 3,
+    Auxiliary = 3,
 
     /// The fourth button, usually the back button.
     X1 = 4,
@@ -38,7 +38,7 @@ impl PointerButton {
     /// Returns `true` if this is `PointerButton::Auxilary`.
     #[inline]
     pub fn is_auxilary(self) -> bool {
-        self == PointerButton::Auxilary
+        self == PointerButton::Auxiliary
     }
 
     /// Returns `true` if this is `PointerButton::X1`.
@@ -123,7 +123,7 @@ impl PointerButtons {
     /// Returns `true` if `PointerButton::Auxilary` is in the set.
     #[inline]
     pub fn has_auxilary(self) -> bool {
-        self.contains(PointerButton::Auxilary)
+        self.contains(PointerButton::Auxiliary)
     }
 
     /// Returns `true` if `PointerButton::X1` is in the set.
