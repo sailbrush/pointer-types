@@ -22,6 +22,20 @@ pub enum PointerButton {
     X2 = 5,
 }
 
+impl From<isize> for PointerButton {
+    fn from(value: isize) -> Self {
+        match value {
+            0 => PointerButton::None,
+            1 => PointerButton::Primary,
+            2 => PointerButton::Secondary,
+            3 => PointerButton::Auxiliary,
+            4 => PointerButton::X1,
+            5 => PointerButton::X2,
+            _ => PointerButton::None,
+        }
+    }
+}
+
 impl PointerButton {
     /// Returns `true` if this is `PointerButton::Primary`.
     #[inline]
